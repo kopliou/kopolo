@@ -7,11 +7,12 @@
 ## Запуск
 
 ```bash
-npm run dev   # http://localhost:5173 (порт меняется переменной PORT)
-npm test      # тесты симуляции, нужен Node.js 20+
+npm run dev     # http://localhost:5173 (порт меняется переменной PORT)
+npm run build   # dist/kopolo.html — вся игра одним файлом
+npm test        # тесты симуляции, нужен Node.js 20+
 ```
 
-Игра — это статические файлы (`index.html`, `styles.css`, `src/`), поэтому её можно открыть любым статическим сервером или выложить на GitHub Pages как есть.
+`dist/kopolo.html` открывается двойным щелчком — без сервера и без интернета. Сам `index.html` с диска не запустится: браузеры не загружают JS-модули со страниц `file://`. Ему нужен сервер: `npm run dev`, любой другой статический сервер или GitHub Pages.
 
 ## Управление
 
@@ -42,3 +43,4 @@ npm test      # тесты симуляции, нужен Node.js 20+
 - `src/game.js`, `src/world.js`, `src/bosses.js`, `src/config.js` — симуляция без обращения к DOM (её же прогоняют тесты в `tests/`).
 - `src/render.js`, `src/sprites.js`, `src/hud.js` — отрисовка на canvas: мозаика ландшафта, спрайты, частицы, ночное освещение, интерфейс.
 - `src/main.js`, `src/ui.js`, `src/input.js`, `src/audio.js`, `src/save.js` — игровой цикл, меню, ввод, звук и сохранения.
+- `scripts/serve.mjs`, `scripts/build-single.mjs` — сервер для разработки и сборка игры в один файл.
