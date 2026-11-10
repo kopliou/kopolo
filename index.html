@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KOPOLO — Осколки витражного мира</title>
+  <meta name="description" content="2D-шутер с открытым витражным миром: фермерство, мобы и боссы.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <section id="title" class="overlay" aria-labelledby="title-name">
+    <div class="panel">
+      <h1 id="title-name" class="logo" aria-label="KOPOLO"><span>K</span><span>O</span><span>P</span><span>O</span><span>L</span><span>O</span></h1>
+      <p class="tagline">Осколки витражного мира</p>
+      <p class="lore">Мир-витраж раскололся, и в его осколках поселились твари. Исследуй пять земель, добывай ресурсы, выращивай урожай у Маяка, создавай оружие и одолей четырёх Хранителей.</p>
+      <div class="buttons">
+        <button id="btn-continue" class="btn primary" hidden>Продолжить</button>
+        <button id="btn-new" class="btn">Новая игра</button>
+      </div>
+      <ul class="keys">
+        <li><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> движение</li>
+        <li><kbd>ЛКМ</kbd> огонь · <kbd>1</kbd>–<kbd>6</kbd> оружие</li>
+        <li><kbd>Пробел</kbd> рывок сквозь снаряды</li>
+        <li><kbd>F</kbd> сеять · <kbd>Q</kbd> семена</li>
+        <li><kbd>E</kbd> урожай / алтарь</li>
+        <li><kbd>Z</kbd><kbd>X</kbd><kbd>C</kbd> съесть урожай</li>
+        <li><kbd>Tab</kbd> мастерская · <kbd>M</kbd> карта</li>
+        <li><kbd>T</kbd> удерживать — к Маяку</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="craft" class="overlay" hidden aria-labelledby="craft-name">
+    <div class="panel wide">
+      <header class="bar">
+        <h2 id="craft-name">Мастерская</h2>
+        <div id="wallet" class="wallet"></div>
+        <button id="craft-close" class="btn small">Закрыть · Tab</button>
+      </header>
+      <div class="cols">
+        <div>
+          <h3>Улучшения <small>за эссенцию</small></h3>
+          <ul id="upg-list" class="list"></ul>
+          <h3>Хранители <small>алтари отмечены на карте — M</small></h3>
+          <ul id="core-list" class="cores"></ul>
+        </div>
+        <div>
+          <h3>Оружие <small>из ресурсов и ядер</small></h3>
+          <ul id="weapon-list" class="list"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pause" class="overlay" hidden aria-labelledby="pause-name">
+    <div class="panel">
+      <h2 id="pause-name">Пауза</h2>
+      <p class="lore">Прогресс сохранён. Маяк лечит и отгоняет тварей — возвращайся к нему, чтобы сажать и собирать урожай.</p>
+      <div class="buttons">
+        <button id="btn-resume" class="btn primary">Продолжить</button>
+        <button id="btn-sound" class="btn">Звук: вкл</button>
+        <button id="btn-menu" class="btn">В меню</button>
+      </div>
+      <ul class="keys">
+        <li><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> движение</li>
+        <li><kbd>ЛКМ</kbd> огонь · <kbd>1</kbd>–<kbd>6</kbd> оружие</li>
+        <li><kbd>Пробел</kbd> рывок сквозь снаряды</li>
+        <li><kbd>F</kbd> сеять · <kbd>Q</kbd> семена</li>
+        <li><kbd>E</kbd> урожай / алтарь</li>
+        <li><kbd>Z</kbd><kbd>X</kbd><kbd>C</kbd> съесть урожай</li>
+        <li><kbd>Tab</kbd> мастерская · <kbd>M</kbd> карта</li>
+        <li><kbd>T</kbd> к Маяку · <kbd>N</kbd> звук</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="dead" class="overlay" hidden aria-labelledby="dead-name">
+    <div class="panel">
+      <h2 id="dead-name" class="bad">Ты разбит на осколки</h2>
+      <p id="dead-info" class="lore"></p>
+      <div class="buttons">
+        <button id="btn-respawn" class="btn primary">Возродиться у Маяка</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="win" class="overlay" hidden aria-labelledby="win-name">
+    <div class="panel">
+      <h2 id="win-name" class="good">Сердце Пепла погасло</h2>
+      <p id="win-info" class="lore"></p>
+      <div class="buttons">
+        <button id="btn-win" class="btn primary">Продолжить странствие</button>
+      </div>
+    </div>
+  </section>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
